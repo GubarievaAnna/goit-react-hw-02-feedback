@@ -11,7 +11,7 @@ class App extends Component {
     bad: 0,
   };
 
-  addFeedbackHandler = name => {
+  onLeaveFeedback = name => {
     this.setState(prev => ({ [name]: prev[name] + 1 }));
   };
 
@@ -29,7 +29,7 @@ class App extends Component {
     const { good, neutral, bad } = this.state;
     return (
       <Section title="Please leave feedback">
-        <FeedbackOptions onLeaveFeedback={this.addFeedbackHandler} />
+        <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback} />
         <h2>Statistics</h2>
         {this.countTotalFeedback() === 0 ? (
           <Notification message="Sorry, there is no feedback yet" />
