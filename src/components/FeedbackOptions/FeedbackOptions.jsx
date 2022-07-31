@@ -1,31 +1,30 @@
 import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
 import s from './FeedbackOptions.module.css';
 
-const FeedbackOptions = ({ onLeaveFeedback }) => {
+const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
-    <>
-      <button
-        type="button"
-        className={`${s.button} ${s.accentGood}`}
-        onClick={() => onLeaveFeedback('good')}
-      >
-        good
-      </button>
-      <button
-        type="button"
-        className={`${s.button} ${s.accentNeutral}`}
-        onClick={() => onLeaveFeedback('neutral')}
-      >
-        neutral
-      </button>
-      <button
-        type="button"
-        className={`${s.button} ${s.accentBad}`}
-        onClick={() => onLeaveFeedback('bad')}
-      >
-        bad
-      </button>
-    </>
+    <ul className={s.list}>
+      {options.map(({ title, name }) => {
+        return (
+          <li key={nanoid()} className={s.item}>
+            <button
+              type="button"
+              className={`${s.button} ${
+                name === 'good'
+                  ? s.accentGood
+                  : name === 'neutral'
+                  ? s.accentNeutral
+                  : s.accentBad
+              }`}
+              onClick={() => onLeaveFeedback(name)}
+            >
+              {title}
+            </button>
+          </li>
+        );
+      })}
+    </ul>
   );
 };
 
