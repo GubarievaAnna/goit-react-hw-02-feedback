@@ -27,15 +27,16 @@ class App extends Component {
 
   render() {
     const { good, neutral, bad } = this.state;
+    const options = [
+      { title: 'Good', name: 'good' },
+      { title: 'Neutral', name: 'neutral' },
+      { title: 'Bad', name: 'bad' },
+    ];
     return (
       <Section title="Please leave feedback">
         <FeedbackOptions
           onLeaveFeedback={this.onLeaveFeedback}
-          options={[
-            { title: 'Good', name: 'good' },
-            { title: 'Neutral', name: 'neutral' },
-            { title: 'Bad', name: 'bad' },
-          ]}
+          options={options}
         />
         <h2>Statistics</h2>
         {this.countTotalFeedback() === 0 ? (
