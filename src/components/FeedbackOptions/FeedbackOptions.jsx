@@ -6,17 +6,12 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <ul className={s.list}>
       {options.map(({ title, name }) => {
+        const parametr = `accent${title}`;
         return (
           <li key={nanoid()} className={s.item}>
             <button
               type="button"
-              className={`${s.button} ${
-                name === 'good'
-                  ? s.accentGood
-                  : name === 'neutral'
-                  ? s.accentNeutral
-                  : s.accentBad
-              }`}
+              className={`${s.button} ${s[parametr]}`}
               onClick={() => onLeaveFeedback(name)}
             >
               {title}
