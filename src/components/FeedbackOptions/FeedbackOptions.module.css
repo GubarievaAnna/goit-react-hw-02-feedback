@@ -15,7 +15,7 @@
 }
 
 .button:active {
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 
 .button:not(:last-child) {
