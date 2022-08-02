@@ -19,13 +19,16 @@
 }
 
 .accentGood {
+  composes: button;
   background-color: green;
 }
 
 .accentNeutral {
+  composes: button;
   background-color: grey;
 }
 
 .accentBad {
+  composes: button;
   background-color: red;
 }
