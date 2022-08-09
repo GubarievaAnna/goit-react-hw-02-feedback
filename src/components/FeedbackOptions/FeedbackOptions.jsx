@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import s from './FeedbackOptions.module.css';
 
-const FeedbackOptions = ({ options, onFeedbackLeave }) => {
+const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <ul className={s.list}>
       {options.map(({ title, name }) => {
@@ -11,7 +11,7 @@ const FeedbackOptions = ({ options, onFeedbackLeave }) => {
             <button
               type="button"
               className={s[`accent${title}`]}
-              onClick={() => onFeedbackLeave(name)}
+              onClick={() => onLeaveFeedback(name)}
             >
               {title}
             </button>
@@ -24,7 +24,7 @@ const FeedbackOptions = ({ options, onFeedbackLeave }) => {
 
 FeedbackOptions.propTypes = {
   options: PropTypes.array.isRequired,
-  onFeedbackLeave: PropTypes.func.isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
 };
 
 export default FeedbackOptions;
